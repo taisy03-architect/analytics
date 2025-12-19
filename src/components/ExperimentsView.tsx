@@ -518,7 +518,7 @@ export function ExperimentsView() {
               <label className="input-label">Duration (days)</label>
               <select
                 value={duration}
-                onChange={(e) => setDuration(e.value)}
+                onChange={(e) => setDuration(e.target.value)}
                 className="input"
               >
                 <option value="7">7</option>
