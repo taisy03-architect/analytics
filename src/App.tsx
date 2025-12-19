@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SessionList } from "./components/SessionList";
 import { Dashboard } from "./components/Dashboard";
 import { InsightsView } from "./components/InsightsView";
@@ -128,6 +128,11 @@ export const PAGE_FILTERS: PageFilter[] = [
 ];
 
 function App() {
+  // Keep document title consistent with UI label
+  useEffect(() => {
+    document.title = "Session Analysis Dashboard";
+  }, []);
+
   const [clusters] = useState<Cluster[]>(snapshotClusters);
   const [sessions] = useState<Session[]>(snapshotSessions);
   const [stats] = useState<Stats | null>(snapshotStats);
@@ -148,7 +153,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Session Analysis Dashboard (Snapshot)</h1>
+        <h1>Session Analysis Dashboard</h1>
         <div className="header-actions">
           <div className="view-toggle">
             <button
